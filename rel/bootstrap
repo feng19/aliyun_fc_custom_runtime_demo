@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+export RELEASE_TMP=/tmp
+./bin/ex_aliyun_fc start
