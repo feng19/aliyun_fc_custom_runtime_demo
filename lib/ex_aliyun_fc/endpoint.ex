@@ -3,9 +3,9 @@ defmodule ExAliyunFc.Endpoint do
   use Plug.Router
   require Logger
 
-  plug(Plug.Logger)
-  plug(:match)
-  plug(:dispatch)
+  plug Plug.Logger
+  plug :match
+  plug :dispatch
 
   post "/initialize" do
     Logger.info("initialize req_headers: " <> inspect(conn.req_headers))
@@ -28,6 +28,9 @@ defmodule ExAliyunFc.Endpoint do
   end
 
   match _ do
+    Logger.info("invoke req_headers: " <> inspect(conn.req_headers))
+    {:ok, body, conn} = read_body(conn)
+    Logger.info("invoke body: " <> body)
     send_resp(conn, 404, "oops")
   end
 end

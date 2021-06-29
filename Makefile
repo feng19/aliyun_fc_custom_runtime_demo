@@ -23,6 +23,7 @@ release: rel/erlang rel/libtinfo.so.6
 	chmod a+x releases/0.1.0/env.sh && \
 	chmod a+x releases/0.1.0/elixir && \
 	chmod a+x releases/0.1.0/iex && \
+	chmod a+x erts-$(ERTS_VERSION)/bin/epmd && \
 	chmod a+x erts-$(ERTS_VERSION)/bin/erl && \
 	chmod a+x bin/$(APP)
 

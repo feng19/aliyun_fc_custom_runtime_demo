@@ -8,7 +8,13 @@ defmodule ExAliyunFc.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      {Plug.Cowboy, scheme: :http, plug: ExAliyunFc.Endpoint, options: [port: 9000]}
+      {Plug.Cowboy,
+       scheme: :http,
+       plug: ExAliyunFc.Endpoint,
+       options: [
+         port: 9000,
+         protocol_options: [idle_timeout: :infinity, max_keepalive: :infinity]
+       ]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
