@@ -29,3 +29,6 @@ release: rel/erlang rel/libtinfo.so.6
 
 deploy: release
 	fun deploy -y
+
+deploy_http: release
+	fun deploy -y -t http-template.yml
